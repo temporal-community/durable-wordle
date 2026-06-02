@@ -4,6 +4,9 @@ worker:
     uv run python -m durable_wordle.worker
 
 server:
+    temporal server start-dev
+
+ui:
     uv run uvicorn --factory durable_wordle.api:create_production_app --reload
 
 test:

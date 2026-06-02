@@ -25,7 +25,8 @@ just lint       # uv run ruff check src/ tests/
 just typecheck  # uv run mypy src/
 just format     # uv run ruff format src/ tests/
 just worker     # start Temporal worker
-just server     # start FastAPI dev server (uvicorn --reload)
+just server     # start Temporal local dev server (temporal server start-dev)
+just ui         # start FastAPI dev server (uvicorn --reload)
 ```
 
 Run a single test: `uv run pytest tests/test_game_logic.py::test_name -v`
