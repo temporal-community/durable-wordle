@@ -1,5 +1,9 @@
 # Durable Wordle
 
+<p align="center">
+  <a href="https://t.mp/durable-wordle"><img src="https://img.shields.io/badge/Play%20Durable%20Wordle%20Now%21-444CE7?style=for-the-badge" alt="Play Durable Wordle Now!" height="44"></a>
+</p>
+
 A Wordle clone where each game session is a [Temporal](https://temporal.io) workflow. No database — the workflow *is* the state. Built as a conference demo teaching core Temporal concepts through a game everyone already knows how to play.
 
 Close the browser, reopen it, and your game is still there. That's durable execution.
