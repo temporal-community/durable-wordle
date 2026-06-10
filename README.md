@@ -53,12 +53,24 @@ brew install temporal
 
 ## Running Locally (without Docker)
 
-You need three terminal windows:
+The easiest path is one terminal:
+
+```bash
+uv sync
+just dev
+```
+
+This starts the Temporal dev server, the Temporal worker, and the FastAPI web
+server together. Open **http://localhost:8000** to play. The Temporal UI is
+available at **http://localhost:8233**. The health check endpoint is
+**http://localhost:8000/health**.
+
+If you prefer to run each process separately, use three terminal windows:
 
 ### Terminal 1: Start Temporal dev server
 
 ```bash
-temporal server start-dev
+just server
 ```
 
 This starts a local Temporal server at `localhost:7233` with an ephemeral SQLite database and the Temporal UI at `http://localhost:8233`.
@@ -75,7 +87,7 @@ The worker connects to Temporal and polls for workflow tasks. It registers the `
 ### Terminal 3: Start the web server
 
 ```bash
-just server
+just ui
 ```
 
 Open **http://localhost:8000** in your browser and play.
@@ -155,6 +167,10 @@ Omitting `random_mode` (or setting it to `false`) uses the daily word — determ
 
 ```bash
 just check      # lint + typecheck + test (the gate)
+just dev        # start Temporal server + worker + web UI
+just server     # start Temporal local dev server
+just worker     # start Temporal worker
+just ui         # start FastAPI web server
 just test       # run tests
 just lint       # ruff check
 just typecheck  # mypy strict
